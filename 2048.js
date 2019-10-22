@@ -5,11 +5,6 @@ new Vue({
     data: {
     },
     methods: {
-        handleKey(e) {
-            let kc = e.keyCode;
-            if (Object.values(KEY).includes(kc)) // arrow key
-                this.step(kc);
-        },
         step(dir) {
             switch (dir) {
                 case KEY.LEFT: console.log('Links!'); break;
@@ -19,6 +14,10 @@ new Vue({
         }
     },
     created() {
-        document.addEventListener('keyup', this.handleKey);
+        document.addEventListener('keyup', event => {
+            let kc = event.keyCode;
+            if (Object.values(KEY).includes(kc)) // act on arrow keys
+                this.step(kc);
+        });
     }
 });
