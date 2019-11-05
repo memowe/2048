@@ -17,6 +17,22 @@ new Vue({
         },
         initBoard() { this.board = this.createNewBoard() },
 
+        // Rotate the given board left n * 90 degrees
+        rot(board, n) {
+            if (n == 0) return board;
+
+            // Rotate one step
+            let clone = this.createNewBoard();
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    clone[size - (x+1)][y] = board[y][x];
+                }
+            }
+
+            // Rotate the rest
+            return this.rot(clone, n - 1);
+        },
+
         // Add one tile to the board at a random position
         addTile(value) {
 
