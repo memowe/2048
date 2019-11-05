@@ -74,13 +74,22 @@ new Vue({
             this.board[pos.y][pos.x] = value;
         },
 
-        // ...
+        // React to one arrow key action
         step(dir) {
+
+            // TODO
+            console.log(this.board);
+
+            // Collapse in the right direction
             switch (dir) {
-                case KEY.LEFT: console.log('Links!'); break;
-                default:
-                    console.log(Object.keys(KEY).find(k => KEY[k] == dir));
+                case KEY.LEFT:  this.collapseLeft();    break;
+                case KEY.UP:    this.collapseTop();     break;
+                case KEY.RIGHT: this.collapseRight();   break;
+                default:        this.collapseBottom();
             }
+
+            // Add a tile
+            this.addTile(2);
         }
     },
 
