@@ -33,9 +33,39 @@ new Vue({
             return this.rot(clone, n - 1);
         },
 
+        // Merge tiles together towards the left hand side
+        merge(board) {
+
+            // Collect merge candidates and remove them temporarily
+            let toMerge = [];
+            for (let y = 0; y < size; y++) {
+                for (let x = 1; x < size; x++) { // Not from the first col
+                    if (board[y][x] != null && board[y][x] == board[y][x-1]) {
+                        toMerge.push({x: x, y: y, val: board[y][x]});
+                        board[y][x] = board[y][x-1] = null;
+                    }
+                }
+            }
+
+            // Merge left
+            toMerge.forEach(pos => {board[pos.y][pos.x] = pos.val * 2});
+            return board;
+        },
+
+        // Drop tiles towards the left hand side
+        drop(board) {
+            return board.map(col => {
+                let tiles = col.filter(p => p != null);     // Collect != null
+                for (let i = tiles.length; i < size; i++) { // Fill with null
+                    tiles[i] = null;
+                }
+                return tiles;
+            });
+        },
+
         // Collapse all tiles of the given board towards the left hand side
         col(board) {
-            return board;
+            return this.drop(this.merge(this.drop(board)));
         },
         collapseLeft() {
             this.board = this.col(this.board);
