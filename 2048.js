@@ -35,7 +35,6 @@ new Vue({
 
         // Collapse all tiles of the given board towards the left hand side
         col(board) {
-            console.log(board);
             return board;
         },
         collapseLeft() {
@@ -76,9 +75,6 @@ new Vue({
 
         // React to one arrow key action
         step(dir) {
-
-            // TODO
-            console.log(this.board);
 
             // Collapse in the right direction
             switch (dir) {
