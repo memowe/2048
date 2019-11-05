@@ -33,22 +33,22 @@ new Vue({
             return this.rot(clone, n - 1);
         },
 
-        // Collapse all tiles of the given board towards the bottom
+        // Collapse all tiles of the given board towards the left hand side
         col(board) {
             console.log(board);
             return board;
         },
         collapseLeft() {
-            this.board = this.rot(this.col(this.rot(this.board, 1)), 3);
+            this.board = this.col(this.board);
         },
         collapseTop() {
-            this.board = this.rot(this.col(this.rot(this.board, 2)), 2);
+            this.board = this.rot(this.col(this.rot(this.board, 1)), 3);
         },
         collapseRight() {
-            this.board = this.rot(this.col(this.rot(this.board, 3)), 1);
+            this.board = this.rot(this.col(this.rot(this.board, 2)), 2);
         },
         collapseBottom() {
-            this.board = this.col(this.board);
+            this.board = this.rot(this.col(this.rot(this.board, 3)), 1);
         },
 
         // Add one tile to the board at a random position
