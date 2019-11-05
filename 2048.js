@@ -3,12 +3,13 @@ const size  = 4;
 
 new Vue({
     el: 'main',
-    data: {board: new Array(size)},
+    data: {board: null},
 
     methods: {
 
         // Empty the board
         initBoard() {
+            this.board = new Array(size);
             for (let y = 0; y < size; y++) {
                 this.board[y] = new Array(size);
             }
