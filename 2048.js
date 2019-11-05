@@ -1,4 +1,4 @@
-const KEY = {LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40};
+const KEY   = {LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40};
 const size  = 4;
 
 new Vue({
@@ -47,16 +47,22 @@ new Vue({
         }
     },
 
+    // Initialize the game
     created() {
+
+        // Apply step method for arrow key actions
         document.addEventListener('keyup', event => {
             let kc = event.keyCode;
-            if (Object.values(KEY).includes(kc)) // act on arrow keys
+            if (Object.values(KEY).includes(kc))
                 this.step(kc);
         });
 
+        // Initialize
         this.initBoard();
         this.addTile(2);
         this.addTile(4);
+
+        // TODO
         console.log(this.board);
     }
 });
