@@ -58,9 +58,18 @@ new Vue({
         });
 
         // Initialize
+        // TODO
         this.initBoard();
         this.addTile(2);
         this.addTile(4);
+        this.addTile(8);
+        this.addTile(16);
+        this.addTile(32);
+        this.addTile(64);
+        this.addTile(128);
+        this.addTile(256);
+        this.addTile(1024);
+        this.addTile(2048);
 
         // TODO
         console.log(this.board);

@@ -1,3 +1,37 @@
+#board {
+    border: none;
+    border-spacing: .3em;
+    margin: 2em;
+    font-size: 2em;
+    background-color: #aaa;
+    border-radius: .6em;
+}
+
+#board td {
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    border-radius: .3em;
+}
+
+#board td.empty    { background-color: #bbb }
+#board td.tile2    { background-color: #ddd }
+#board td.tile4    { background-color: #eee }
+#board td.tile8    { background-color: #fcc }
+#board td.tile16   { background-color: #fc9 }
+#board td.tile32   { background-color: #f96 }
+#board td.tile64   { background-color: #f60 }
+#board td.tile128  { background-color: #ffc }
+#board td.tile256  { background-color: #ff9 }
+#board td.tile1024 { background-color: #fc0 }
+#board td.tile2048 { background-color: #fb0 }
+
+#board .tile {
+    background-color: lightgrey;
+}
+
 footer {
     border-top: thin solid darkgray;
 }

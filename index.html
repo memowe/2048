@@ -7,6 +7,15 @@
     </head>
     <body>
         <main>
+            <table id="board" border="1">
+                <tr v-for="row in board">
+                    <td v-for="value in row"
+                        v-bind:class="{'empty': (value == null), 'tile': (value != null), ['tile' + value]: (value != null)}"
+                    >
+                        <strong v-if="value != null">{{ value }}</strong>
+                    </td>
+                </tr>
+            </table>
         </main>
         <footer>
             <p>&copy; <a href="https://mirko.westermeier.de/">Mirko Westermeier</a></p>
