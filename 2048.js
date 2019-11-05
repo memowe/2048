@@ -7,13 +7,15 @@ new Vue({
 
     methods: {
 
-        // Empty the board
-        initBoard() {
-            this.board = new Array(size);
+        // Create empty board
+        createNewBoard() {
+            let board = new Array(size);
             for (let y = 0; y < size; y++) {
-                this.board[y] = new Array(size);
+                board[y] = new Array(size);
             }
+            return board;
         },
+        initBoard() { this.board = this.createNewBoard() },
 
         // Add one tile to the board at a random position
         addTile(value) {
