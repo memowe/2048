@@ -9,8 +9,8 @@ new Vue({
 
         // Empty the board
         initBoard() {
-            for (let x = 0; x < size; x++) {
-                this.board[x] = new Array(size);
+            for (let y = 0; y < size; y++) {
+                this.board[y] = new Array(size);
             }
         },
 
@@ -19,9 +19,9 @@ new Vue({
 
             // Collect free positions
             let free = [];
-            for (let x = 0; x < size; x++) {
-                for (let y = 0; y < size; y++) {
-                    if (this.board[x][y] == null) {
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    if (this.board[y][x] == null) {
                         free.push({x: x, y: y});
                     }
                 }
@@ -34,7 +34,7 @@ new Vue({
 
             // Place tile at a random position
             let pos = free[ Math.floor(Math.random() * free.length) ];
-            this.board[pos.x][pos.y] = value;
+            this.board[pos.y][pos.x] = value;
         },
 
         // ...
