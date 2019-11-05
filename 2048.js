@@ -33,6 +33,24 @@ new Vue({
             return this.rot(clone, n - 1);
         },
 
+        // Collapse all tiles of the given board towards the bottom
+        col(board) {
+            console.log(board);
+            return board;
+        },
+        collapseLeft() {
+            this.board = this.rot(this.col(this.rot(this.board, 1)), 3);
+        },
+        collapseTop() {
+            this.board = this.rot(this.col(this.rot(this.board, 2)), 2);
+        },
+        collapseRight() {
+            this.board = this.rot(this.col(this.rot(this.board, 3)), 1);
+        },
+        collapseBottom() {
+            this.board = this.col(this.board);
+        },
+
         // Add one tile to the board at a random position
         addTile(value) {
 
