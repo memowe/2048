@@ -114,8 +114,8 @@ new Vue({
                 default:        this.collapseBottom();
             }
 
-            // Add a tile
-            this.addTile(2);
+            // Add a 2 tile, sometimes a 4 tile
+            this.addTile(Math.random() > 0.1 ? 2 : 4);
         }
     },
 
