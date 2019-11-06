@@ -25,6 +25,7 @@
 #board td.tile64   { background-color: #f60 }
 #board td.tile128  { background-color: #ffc }
 #board td.tile256  { background-color: #ff9 }
+#board td.tile512  { background-color: #fe0 }
 #board td.tile1024 { background-color: #fc0 }
 #board td.tile2048 { background-color: #fb0 }
 
