@@ -31,6 +31,11 @@ class Board {
         return this;
     }
 
+    // Access helper, returns a row array of value arrays
+    rows() {
+        return new Board(this).cols;
+    }
+
     // Helper method for an array of indices
     range() {
         return rangeTo(this.size - 1);
