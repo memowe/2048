@@ -3,7 +3,7 @@ const size  = 4;
 
 new Vue({
     el: 'main',
-    data: {board: null},
+    data: {board: new Board(size)},
 
     methods: {
 
@@ -12,14 +12,14 @@ new Vue({
 
             // Collapse in the right direction
             switch (dir) {
-                case KEY.LEFT:  this.collapseLeft();    break;
-                case KEY.UP:    this.collapseTop();     break;
-                case KEY.RIGHT: this.collapseRight();   break;
-                default:        this.collapseBottom();
+                case KEY.LEFT:  this.board.collapseLeft();    break;
+                case KEY.UP:    this.board.collapseTop();     break;
+                case KEY.RIGHT: this.board.collapseRight();   break;
+                default:        this.board.collapseBottom();
             }
 
             // Add a 2 tile, sometimes a 4 tile
-            this.addTile(Math.random() > 0.1 ? 2 : 4);
+            this.board.addTile(Math.random() > 0.1 ? 2 : 4);
         }
     },
 
@@ -33,8 +33,7 @@ new Vue({
         });
 
         // Initialize
-        this.initBoard();
-        this.addTile(2);
-        this.addTile(4);
+        this.board.addTile(2);
+        this.board.addTile(4);
     }
 });
