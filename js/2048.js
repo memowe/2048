@@ -20,6 +20,9 @@ new Vue({
 
             // Add a 2 tile, sometimes a 4 tile
             this.board.addTile(Math.random() > 0.1 ? 2 : 4);
+
+            // Update, as Vue can't detect all array updates
+            this.$forceUpdate();
         }
     },
 
