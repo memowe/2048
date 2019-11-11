@@ -110,8 +110,8 @@ class Board {
     drop() {
 
         // Collect tile columns
-        let cols = this.range().map(y =>
-            this.range().map(x => this.get(x, y))
+        let cols = this.range().map(x =>
+            this.range().map(y => this.get(x, y))
                 .filter(v => v != null)
         );
 
@@ -123,7 +123,7 @@ class Board {
         // Inject back
         for (let x in this.range()) {
             for (let y in this.range()) {
-                this.set(x, y, cols[y][x]);
+                this.set(x, y, cols[x][y]);
             }
         }
         return this;
