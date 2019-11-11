@@ -32,8 +32,15 @@ class Board {
     }
 
     // Access helper, returns a row array of value arrays
-    rows() {
-        return new Board(this).cols;
+    getRows() {
+        return this.range().reverse().map(y =>
+            this.range().map(x => this.get(x, y)));
+    }
+
+    // "Deep" map: maps functions on getRows() entries
+    map(f) {
+        return this.getRows()
+            .map(row => row.map(entry => f(entry)));
     }
 
     // Helper method for an array of indices
@@ -132,4 +139,10 @@ class Board {
     collapseTop()   { return this.rotate(2).collapse().rotate(2) }
     collapseRight() { return this.rotate(3).collapse().rotate(1) }
     collapseBottom(){ return this.rotate(0).collapse().rotate(0) }
+
+    // Utility stringification method
+    toString() {
+        return this.map(entry => spacePad(entry, 4))
+            .map(row => row.join(" ")).join("\n");
+    }
 }

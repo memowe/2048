@@ -8,7 +8,7 @@
     <body>
         <main>
             <table id="board" border="1">
-                <tr v-for="row in board.rows()">
+                <tr v-for="row in board.getRows()">
                     <td v-for="value in row"
                         v-bind:class="{'empty': (value == null), 'tile': (value != null), ['tile' + value]: (value != null)}"
                     >
