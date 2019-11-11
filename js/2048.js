@@ -3,7 +3,7 @@ const size  = 4;
 
 new Vue({
     el: 'main',
-    data: {board: new Board(size)},
+    data() {return {board: new Board(size)}},
 
     methods: {
 
