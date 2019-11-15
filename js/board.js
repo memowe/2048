@@ -57,6 +57,21 @@ class Board {
         return true;
     }
 
+    hasTile(value) {
+
+        // Try to find the tile
+        for (let y in this.range()) {
+            for (let x in this.range()) {
+                if (this.get(x, y) == value) {
+                    return true;
+                }
+            }
+        }
+
+        // Nothing found
+        return false;
+    }
+
     isFull() {
 
         // Try to find a null
