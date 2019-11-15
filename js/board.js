@@ -57,6 +57,21 @@ class Board {
         return true;
     }
 
+    isFull() {
+
+        // Try to find a null
+        for (let y in this.range()) {
+            for (let x in this.range()) {
+                if (this.get(x, y) == null) {
+                    return false;
+                }
+            }
+        }
+
+        // Nothing found
+        return true;
+    }
+
     // "Deep" map: maps functions on getRows() entries
     map(f) {
         return this.getRows()
