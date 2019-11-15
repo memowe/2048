@@ -3,7 +3,10 @@ const size  = 4;
 
 new Vue({
     el: 'main',
-    data() {return {board: new Board(size)}},
+    data() {return{
+        board: new Board(size),
+        won: false
+    }},
 
     methods: {
 
@@ -19,8 +22,9 @@ new Vue({
             }
 
             // Got a 2048?
-            if (this.board.hasTile(2048)) {
+            if (this.board.hasTile(2048) && ! this.won) {
                 alert("You win!");
+                this.won = true;
                 return;
             }
 
