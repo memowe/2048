@@ -57,6 +57,54 @@ class Board {
         return true;
     }
 
+    hasTile(value) {
+
+        // Try to find the tile
+        for (let y in this.range()) {
+            for (let x in this.range()) {
+                if (this.get(x, y) == value) {
+                    return true;
+                }
+            }
+        }
+
+        // Nothing found
+        return false;
+    }
+
+    isFull() {
+        return ! this.hasTile(null);
+    }
+
+    isCollapsible() {
+
+        // Not full -> collapsible
+        if (! this.isFull()) {
+            return true;
+        }
+
+        // Check up-down pairs
+        for (let y = 1; y < this.size; y++) {
+            for (let x in this.range()) {
+                if (this.get(x, y) == this.get(x, y-1)) {
+                    return true;
+                }
+            }
+        }
+
+        // Check left-right pairs
+        for (let y in this.range()) {
+            for (let x = 1; x < this.size; x++) {
+                if (this.get(x, y) == this.get(x-1, y)) {
+                    return true;
+                }
+            }
+        }
+
+        // Nothing found
+        return false;
+    }
+
     // "Deep" map: maps functions on getRows() entries
     map(f) {
         return this.getRows()
