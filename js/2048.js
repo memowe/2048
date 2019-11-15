@@ -19,7 +19,12 @@ new Vue({
             }
 
             // Nothing happened?
-            if (this.board.wasStatic) return;
+            if (this.board.wasStatic) {
+                if (this.board.isFull() && ! this.board.isCollapsible()) {
+                    alert("Game over!");
+                }
+                return;
+            }
 
             // Add a 2 tile, sometimes a 4 tile
             this.board.addTile(Math.random() > 0.1 ? 2 : 4);
