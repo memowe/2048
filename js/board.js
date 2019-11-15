@@ -73,18 +73,7 @@ class Board {
     }
 
     isFull() {
-
-        // Try to find a null
-        for (let y in this.range()) {
-            for (let x in this.range()) {
-                if (this.get(x, y) == null) {
-                    return false;
-                }
-            }
-        }
-
-        // Nothing found
-        return true;
+        return ! this.hasTile(null);
     }
 
     isCollapsible() {
