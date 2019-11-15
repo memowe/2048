@@ -18,6 +18,12 @@ new Vue({
                 default:        this.board.collapseBottom();
             }
 
+            // Got a 2048?
+            if (this.board.hasTile(2048)) {
+                alert("You win!");
+                return;
+            }
+
             // Nothing happened?
             if (this.board.wasStatic) {
                 if (this.board.isFull() && ! this.board.isCollapsible()) {
