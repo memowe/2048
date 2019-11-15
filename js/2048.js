@@ -18,6 +18,9 @@ new Vue({
                 default:        this.board.collapseBottom();
             }
 
+            // Nothing happened?
+            if (this.board.wasStatic) return;
+
             // Add a 2 tile, sometimes a 4 tile
             this.board.addTile(Math.random() > 0.1 ? 2 : 4);
 

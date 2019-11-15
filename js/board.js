@@ -13,6 +13,7 @@ class Board {
     init(size) {
         this.size = size;
         this.cols = this.range().map(c => this.range().fill(null));
+        this.wasStatic = false;
         return this;
     }
 
@@ -150,7 +151,14 @@ class Board {
 
     // Collapse tiles downwards
     collapse() {
-        return this.drop().merge().drop();
+        let backup = new Board(this);
+
+        // Collapse
+        this.drop().merge().drop();
+
+        // Done
+        this.wasStatic = this.isEqual(backup);
+        return this;
     }
 
     // Collapse tiles in all directions
