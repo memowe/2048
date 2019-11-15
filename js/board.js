@@ -23,6 +23,21 @@ class Board {
         return this;
     }
 
+    get(x, y) {
+        return this.cols[y][x];
+    }
+
+    set(x, y, value) {
+        this.cols[y][x] = value;
+        return this;
+    }
+
+    // Access helper, returns a row array of value arrays
+    getRows() {
+        return this.range().reverse().map(y =>
+            this.range().map(x => this.get(x, y)));
+    }
+
     isEqual(board) {
 
         // Size must be equal
@@ -40,21 +55,6 @@ class Board {
 
         // Else: equal!
         return true;
-    }
-
-    get(x, y) {
-        return this.cols[y][x];
-    }
-
-    set(x, y, value) {
-        this.cols[y][x] = value;
-        return this;
-    }
-
-    // Access helper, returns a row array of value arrays
-    getRows() {
-        return this.range().reverse().map(y =>
-            this.range().map(x => this.get(x, y)));
     }
 
     // "Deep" map: maps functions on getRows() entries
