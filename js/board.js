@@ -22,6 +22,25 @@ class Board {
         return this;
     }
 
+    isEqual(board) {
+
+        // Size must be equal
+        if (this.size != board.size)
+            return false;
+
+        // Each spot must be equal
+        for (let y in this.range()) {
+            for (let x in this.range()) {
+                if (this.get(x, y) != board.get(x, y)) {
+                    return false;
+                }
+            }
+        };
+
+        // Else: equal!
+        return true;
+    }
+
     get(x, y) {
         return this.cols[y][x];
     }
